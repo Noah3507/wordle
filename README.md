@@ -57,3 +57,6 @@ Wordle 게임은 ES6 모듈(import/export)을 사용하므로, 파일 시스템(
 개발자 도구 사용:
 게임 실행 시, 개발자 도구 콘솔에서 정답 단어를 확인할 수 있습니다.
 
+단어 리스트 출처:
+이 게임에서 사용된 단어 목록은 'https://github.com/charlesreid1/five-letter-words' 저장소에서 가져왔습니다.
+
