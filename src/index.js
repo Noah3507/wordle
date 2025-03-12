@@ -1,6 +1,5 @@
 import { realDictionary } from "./dictionary.js";
 
-// 단어들을 소문자로 통일 (일관성 있게 비교)
 const dictionary = realDictionary.map(word => word.toLowerCase());
 
 const state = {
@@ -11,7 +10,6 @@ const state = {
 };
 
 
-// ───────────────── 보드 생성 함수 (기존 drawGrid() 대체) ─────────────────
 function generateBoard() {
   const board = document.getElementById("board");
   board.innerHTML = "";
@@ -30,7 +28,6 @@ function generateBoard() {
   }
 }
 
-// ───────────────── 가상 키보드 생성 함수 ─────────────────
 function createKeyboard() {
   const keyboardContainer = document.getElementById("keyboard");
   keyboardContainer.innerHTML = "";
@@ -49,7 +46,7 @@ function createKeyboard() {
     keyboardContainer.appendChild(ul);
   });
   
-  // 추가 행: Enter와 Backspace
+ 
   const extraRow = document.createElement("ul");
   
   const enterKey = document.createElement("li");
@@ -67,14 +64,14 @@ function createKeyboard() {
   keyboardContainer.appendChild(extraRow);
 }
 
-// ───────────────── 물리 키보드 이벤트 등록 ─────────────────
+
 function registerKeyboardEvents() {
   document.addEventListener("keydown", (e) => {
     onKeyDown(e.key);
   });
 }
 
-// ───────────────── 헬퍼 함수들 ─────────────────
+
 function isLetter(key) {
   return key.length === 1 && /[a-zA-Z]/.test(key);
 }
@@ -106,31 +103,31 @@ function updateGrid() {
   }
 }
 
-// ───────────────── 단어 평가 및 보드/키 업데이트 (flip 애니메이션 복원) ─────────────────
+
 function revealWord(guess) {
   const rowIndex = state.currentRow;
   const animationDuration = 500; // ms
 
-  // 정답 단어의 각 글자 개수 계산 (복사본)
+  
   const answerCount = {};
   for (let i = 0; i < state.answer.length; i++) {
     const letter = state.answer[i];
     answerCount[letter] = (answerCount[letter] || 0) + 1;
   }
 
-  // 결과 상태 배열 초기화 (각 칸의 상태)
+  
   const statusArray = Array(5).fill("none");
 
-  // 1단계: 정확한 위치의 글자("valid") 처리
+  
   for (let i = 0; i < 5; i++) {
     const letter = guess[i];
     if (letter === state.answer[i]) {
       statusArray[i] = "valid";
-      answerCount[letter]--; // 해당 글자의 남은 개수 감소
+      answerCount[letter]--; 
     }
   }
 
-  // 2단계: 위치는 다르지만 포함되어 있는 글자("invalid") 처리
+  
   for (let i = 0; i < 5; i++) {
     const letter = guess[i];
     if (statusArray[i] !== "valid") {
@@ -141,7 +138,7 @@ function revealWord(guess) {
     }
   }
 
-  // 애니메이션과 상태 업데이트 적용
+  
   for (let i = 0; i < 5; i++) {
     const box = document.getElementById(`box${rowIndex}${i}`);
     box.classList.add("animated");
@@ -153,7 +150,7 @@ function revealWord(guess) {
     }, ((i + 1) * animationDuration) / 2);
   }
 
-  // 승리 및 패배 조건 체크
+  
   if (state.answer === guess) {
     setTimeout(() => {
       alert("🎉 정답입니다! 게임을 다시 시작합니다.");
@@ -180,7 +177,7 @@ function updateKeyboardKey(letter, status) {
   }
 }
 
-// ───────────────── 키 입력 처리 함수 ─────────────────
+
 function onKeyDown(key) {
   if (state.currentRow >= 6) return;
   
@@ -205,7 +202,7 @@ function onKeyDown(key) {
   updateGrid();
 }
 
-// ───────────────── 게임 재시작 함수 ─────────────────
+
 function restartGame() {
   state.answer = dictionary[Math.floor(Math.random() * dictionary.length)];
   state.grid = Array(6).fill().map(() => Array(5).fill(""));
@@ -215,7 +212,7 @@ function restartGame() {
   createKeyboard();
 }
 
-// ───────────────── 초기화 함수 ─────────────────
+
 function startup() {
   console.log("정답 단어:", state.answer); //테스트용
   generateBoard();

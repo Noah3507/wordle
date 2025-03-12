@@ -35,16 +35,16 @@ h1 {
 #board {
   display: flex;
   flex-direction: column;
-  gap: 0; /* 격자 간격은 .box margin(4px)로 처리 */
+  gap: 0; 
   margin: 2rem auto;
   justify-content: center;
   align-items: center;
 }
 
-/* 각 행(UL) 내부의 LI들을 가로로 정렬 */
+
 #board ul {
   display: flex;
-  gap: 0; /* .box margin이 이미 있으므로 gap을 0으로 */
+  gap: 0; 
   padding: 0;
   margin: 0;
   list-style: none;
@@ -93,7 +93,7 @@ h1 {
   }
 }
 
-/* 가상 키보드 전체 컨테이너 */
+
 #keyboard {
   display: flex;
   flex-direction: column;
@@ -103,7 +103,7 @@ h1 {
   margin-bottom: 2rem;
 }
 
-/* 각 키 행 */
+
 #keyboard ul {
   display: flex;
   list-style: none;
@@ -112,7 +112,7 @@ h1 {
   margin: 0;
 }
 
-/* 각 키 스타일 (data-key 속성 사용) */
+
 [data-key] {
   background: var(--empty);
   border: none;
@@ -128,12 +128,12 @@ h1 {
   transition: all 0.3s ease-in-out;
 }
 
-/* 엔터 키는 넓게 */
+
 [data-key="Enter"] {
   width: 6rem;
 }
 
-/* 전역 키 상태에 따른 배경색 */
+
 [data-status="valid"] {
   background: var(--right);
 }
@@ -144,17 +144,17 @@ h1 {
   background: var(--empty);
 }
 
-/* 가상키보드 기본 색상 */
+
 #keyboard [data-key] {
   background: #4a4a4e;
 }
 
-/* 가상키보드에서 정답에 전혀 포함되지 않은 글자: 더 어두운 색상 */
+
 #keyboard [data-status="none"] {
   background: #24242a;
 }
 
-/* 가상키보드 내에서 상태별 색상 오버라이드 */
+
 #keyboard [data-status="valid"] {
   background: var(--right);
 }
@@ -163,7 +163,7 @@ h1 {
   background: var(--wrong);
 }
 
-/* 백스페이스 키: 백스페이스 전용 규칙을 마지막에 배치 */
+
 #keyboard [data-key="Backspace"] {
   background: #4a4a4e url(./backspace.svg) no-repeat center !important;
   text-indent: -9999px;
