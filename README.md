@@ -40,11 +40,11 @@
 
 ### 실행 방법
 
-Wordle 게임은 ES6 모듈(import/export)을 사용하므로, 파일 시스템(file://)에서 직접 열면 제대로 동작하지 않을 수 있습니. 따라서 로컬 HTTP 서버를 통해 실행해야 합니다.
+Wordle 게임은 ES6 모듈(import/export)을 사용하므로, 파일 시스템(file://)에서 직접 열면 제대로 동작하지 않을 수 있습니다.. 따라서 로컬 HTTP 서버를 통해 실행해야 합니다.
 
 ### 방법 : VS Code의 Go Live 또는 Live Server 확장 프로그램 사용
 
-1. VS Code에서 이 프로젝트 폴더(`wordle-game`)를 엽니다.
+1. VS Code에서 이 프로젝트 폴더(ex. `wordle`)를 엽니다.
 2. VS Code 우측 하단의 **"Go Live"** 버튼을 클릭하거나, Command Palette(`Ctrl+Shift+P`)에서 **"Live Server: Open with Live Server"** 를 선택합니다.
 3. 기본 웹 브라우저가 자동으로 열리며, 예를 들어 `http://127.0.0.1:5500` 주소에서 Wordle 게임이 실행됩니다.
 
