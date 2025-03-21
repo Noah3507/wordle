@@ -210,6 +210,7 @@ function restartGame() {
   state.currentCol = 0;
   generateBoard();
   createKeyboard();
+  console.log("정답 단어:", state.answer); //테스트용
 }
 
 
